@@ -1,0 +1,1527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <title>ATIRR — Muhammad Fatir Dohmie | Portfolio</title>
+  <meta name="description" content="Personal portfolio of Muhammad Fatir Dohmie (Atirr) — Aspiring Software Engineer, High School Student at SMAN 1 Sangatta Utara, and Technology Enthusiast. Guided by 'Yes we can.'">
+  <meta name="keywords" content="Muhammad Fatir Dohmie, Atirr, Portfolio, Software Engineering, Python, C, C++, Arduino, SMAN 1 Sangatta Utara">
+  <meta name="author" content="Muhammad Fatir Dohmie">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/icons/favicon.png">
+  <link rel="apple-touch-icon" href="assets/icons/favicon.png">
+  
+  <!-- Google Fonts: Space Grotesk (Headings), DM Sans (Body), DM Mono (Technical) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="dark-theme">
+
+  <!-- Custom Cursor Elements (Desktop only) -->
+  <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-outline" id="cursor-outline" aria-hidden="true"></div>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress-bar" id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Loading Screen (Preloader) -->
+  <div class="preloader" id="preloader" aria-label="Loading site">
+    <div class="preloader-content">
+      <div class="preloader-badge">
+        <span class="pixel-dot"></span>
+        <span class="mono-code">SYSTEM_INIT // ATIRR_OS</span>
+      </div>
+      <div class="preloader-title">
+        <span class="title-bracket">[</span>ATIRR<span class="title-dot">_</span><span class="title-bracket">]</span>
+      </div>
+      <p class="preloader-sub">Loading modules, assets & protocols...</p>
+      <div class="preloader-bar-wrapper">
+        <div class="preloader-bar" id="preloader-bar"></div>
+      </div>
+      <div class="preloader-status mono-code" id="preloader-status">0%</div>
+    </div>
+  </div>
+
+  <!-- Audio Element -->
+  <audio id="bg-audio" loop preload="auto">
+    <source src="assets/audio/background-music.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Navigation Bar -->
+  <header class="header">
+    <nav class="navbar" id="navbar" aria-label="Main Navigation">
+      <div class="nav-container">
+        
+        <!-- Logo -->
+        <a href="#hero" class="nav-logo" aria-label="ATIRR Homepage">
+          <span class="logo-bracket">[</span><span class="logo-text">ATIRR</span><span class="logo-cursor">_</span><span class="logo-bracket">]</span>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <ul class="nav-menu" id="nav-menu">
+          <li class="nav-item">
+            <a href="#hero" class="nav-link active">
+              <span class="nav-index">00.</span>Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#about" class="nav-link">
+              <span class="nav-index">01.</span>About
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#skills" class="nav-link">
+              <span class="nav-index">02.</span>Skills
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#projects" class="nav-link">
+              <span class="nav-index">03.</span>Projects
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#achievements" class="nav-link">
+              <span class="nav-index">04.</span>Achievements
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#journey" class="nav-link">
+              <span class="nav-index">05.</span>Journey
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">
+              <span class="nav-index">06.</span>Contact
+            </a>
+          </li>
+        </ul>
+
+        <!-- Nav Controls: Music & Mobile Toggle -->
+        <div class="nav-controls">
+          <!-- Audio Toggle Button -->
+          <button id="music-toggle" class="music-btn" aria-label="Toggle background music" title="Toggle Background Music (25% volume)">
+            <span class="equalizer-bars" aria-hidden="true">
+              <span class="bar bar-1"></span>
+              <span class="bar bar-2"></span>
+              <span class="bar bar-3"></span>
+            </span>
+            <span class="music-label mono-code" id="music-label">AUDIO: OFF</span>
+          </button>
+
+          <!-- Hamburger Menu Button -->
+          <button id="hamburger-btn" class="hamburger-btn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+            <span class="hamburger-line line-1"></span>
+            <span class="hamburger-line line-2"></span>
+            <span class="hamburger-line line-3"></span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <div class="mobile-menu-header">
+          <span class="mono-code text-accent">// NAVIGATION DIRECTORY</span>
+        </div>
+        <ul class="mobile-nav-list">
+          <li><a href="#hero" class="mobile-nav-link active"><span class="nav-index">00.</span>Home</a></li>
+          <li><a href="#about" class="mobile-nav-link"><span class="nav-index">01.</span>About</a></li>
+          <li><a href="#skills" class="mobile-nav-link"><span class="nav-index">02.</span>Skills</a></li>
+          <li><a href="#projects" class="mobile-nav-link"><span class="nav-index">03.</span>Projects</a></li>
+          <li><a href="#achievements" class="mobile-nav-link"><span class="nav-index">04.</span>Achievements</a></li>
+          <li><a href="#journey" class="mobile-nav-link"><span class="nav-index">05.</span>Journey</a></li>
+          <li><a href="#contact" class="mobile-nav-link"><span class="nav-index">06.</span>Contact</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+          <p class="mono-code text-secondary">"Yes we can." — Atirr</p>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main id="main-content">
+
+    <!-- ========================================================
+         SECTION 00: HERO
+         ======================================================== -->
+    <section id="hero" class="hero-section">
+      <div class="hero-bg-effects" aria-hidden="true">
+        <div class="glow-orb glow-orb-1"></div>
+        <div class="glow-orb glow-orb-2"></div>
+        <div class="grid-overlay"></div>
+      </div>
+
+      <div class="container hero-container">
+        
+        <!-- Left Column: Introduction -->
+        <div class="hero-text-col reveal-on-scroll">
+          
+          <div class="status-badge">
+            <span class="status-dot"></span>
+            <span class="mono-code">STATUS: ONLINE • GRADE 10 HIGH SCHOOL STUDENT</span>
+          </div>
+
+          <div class="greeting-wrapper">
+            <span class="greeting-text mono-code">&lt;hello_world&gt;</span>
+            <h1 class="hero-title">
+              Muhammad <br>
+              <span class="gradient-text">Fatir Dohmie</span>
+            </h1>
+            <div class="nickname-tag mono-code">
+              [ Known as <span class="highlight-accent">Atirr</span> ]
+            </div>
+          </div>
+
+          <p class="hero-role">
+            Aspiring Software Engineer &amp; Technology Enthusiast
+          </p>
+
+          <p class="hero-statement">
+            Currently studying at <strong>SMAN 1 Sangatta Utara, Indonesia</strong>. Passionate about computer science, software engineering, and Arduino robotics. Driven by technical curiosity, continuous learning, and the firm belief that every challenge is an opportunity to grow.
+          </p>
+
+          <div class="motto-box">
+            <span class="motto-icon mono-code">/* MOTTO */</span>
+            <span class="motto-text">"Yes we can."</span>
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">
+              <span>Explore My Work</span>
+              <i class="fa-solid fa-arrow-down-long" aria-hidden="true"></i>
+            </a>
+            <a href="#contact" class="btn btn-secondary">
+              <span>Get In Touch</span>
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            </a>
+            <a href="https://github.com/Fathir0821" target="_blank" rel="noopener noreferrer" class="btn btn-outline" aria-label="Open Atirr's GitHub profile in new tab">
+              <i class="fa-brands fa-github" aria-hidden="true"></i>
+              <span>GitHub</span>
+            </a>
+          </div>
+
+          <!-- Quick Highlight Metrics -->
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <span class="metric-number" data-target="5">5</span><span class="metric-plus">+</span>
+              <span class="metric-label mono-code">Projects Explored</span>
+            </div>
+            <div class="metric-divider">/</div>
+            <div class="metric-item">
+              <span class="metric-number" data-target="7">7</span><span class="metric-plus">+</span>
+              <span class="metric-label mono-code">Achievements &amp; Training</span>
+            </div>
+            <div class="metric-divider">/</div>
+            <div class="metric-item">
+              <span class="metric-number" data-target="3">3</span><span class="metric-plus">+</span>
+              <span class="metric-label mono-code">Core Languages</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Profile Image & Tech Frame -->
+        <div class="hero-image-col reveal-on-scroll">
+          <div class="profile-card pixel-frame">
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+            
+            <div class="image-wrapper">
+              <img src="assets/images/profile/profile-main.jpg" 
+                   alt="Muhammad Fatir Dohmie (Atirr) - Main Profile" 
+                   class="profile-img"
+                   loading="eager"
+                   onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'480\' viewBox=\'0 0 400 480\'><rect width=\'400\' height=\'480\' fill=\'%23111D2D\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%234D9FFF\' font-family=\'sans-serif\' font-size=\'18\'>assets/images/profile/profile-main.jpg</text></svg>';">
+              <div class="image-overlay"></div>
+            </div>
+
+            <!-- Floating Tech Tags -->
+            <div class="floating-tag tag-top mono-code">
+              <i class="fa-solid fa-code"></i> SOFTWARE_DEV
+            </div>
+            <div class="floating-tag tag-bottom mono-code">
+              <i class="fa-solid fa-microchip"></i> ARDUINO_TECH
+            </div>
+
+            <div class="profile-meta">
+              <div class="profile-name">Muhammad Fatir Dohmie</div>
+              <div class="profile-sub mono-code">Grade 10 • SMAN 1 Sangatta Utara</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="hero-scroll-indicator">
+        <a href="#about" aria-label="Scroll to About Me section">
+          <span class="mouse-icon">
+            <span class="wheel"></span>
+          </span>
+          <span class="mono-code scroll-text">SCROLL DOWN</span>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECTION 01: ABOUT ME
+         ======================================================== -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <div class="section-tag mono-code">
+            <span class="tag-bracket">[</span> 01 // IDENTITY <span class="tag-bracket">]</span>
+          </div>
+          <h2 class="section-title">About Me</h2>
+          <p class="section-subtitle">Curious, Ambitious, and Constantly Learning</p>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="about-grid">
+          
+          <!-- Secondary Profile Card -->
+          <div class="about-image-col reveal-on-scroll">
+            <div class="about-card pixel-frame">
+              <div class="card-corner corner-tl"></div>
+              <div class="card-corner corner-tr"></div>
+              <div class="card-corner corner-bl"></div>
+              <div class="card-corner corner-br"></div>
+              
+              <div class="about-img-box">
+                <img src="assets/images/profile/profile-secondary.jpg" 
+                     alt="Muhammad Fatir Dohmie - Exploring Technology" 
+                     class="about-img"
+                     loading="lazy"
+                     onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'480\' viewBox=\'0 0 400 480\'><rect width=\'400\' height=\'480\' fill=\'%23111D2D\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2348E0B0\' font-family=\'sans-serif\' font-size=\'18\'>assets/images/profile/profile-secondary.jpg</text></svg>';">
+              </div>
+
+              <div class="about-card-badge mono-code">
+                <span>IDENTITY: ATIRR</span>
+                <span class="badge-status">LEARNER</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Narrative & Information Column -->
+          <div class="about-content-col reveal-on-scroll">
+            
+            <h3 class="about-heading">
+              Building Foundations in Code &amp; Technology
+            </h3>
+
+            <p class="about-paragraph">
+              Hello! I'm <strong>Muhammad Fatir Dohmie</strong>, widely known by my nickname <strong>Atirr</strong>. I am currently a Grade 10 high school student at <strong>SMAN 1 Sangatta Utara</strong> in East Kalimantan, Indonesia.
+            </p>
+
+            <p class="about-paragraph">
+              My journey into technology began with a deep curiosity about how software and computers operate beneath the surface. Rather than merely consuming digital products, I wanted to understand how logic, algorithms, and lines of code can create interactive applications, solve practical challenges, and automate everyday systems.
+            </p>
+
+            <p class="about-paragraph">
+              I actively study <strong>Python, C, and C++</strong>, while also exploring physical computing and hardware automation using <strong>Arduino</strong> and electronic sensors. I approach every project with an open mind, knowing that consistent practice and curiosity form the bedrock of strong software engineering skills.
+            </p>
+
+            <!-- Ambition Callout Box -->
+            <div class="ambition-card">
+              <div class="ambition-header">
+                <i class="fa-solid fa-bullseye text-accent"></i>
+                <h4 class="ambition-title">Career Ambition &amp; Vision</h4>
+              </div>
+              <p class="ambition-text">
+                My ultimate goal is to become a <strong>professional Software Engineer</strong> and eventually contribute to high-impact technology systems at a global engineering company such as <strong>Google</strong>. I am committed to building strong computer science fundamentals, exploring advanced problem solving, and growing through every challenge.
+              </p>
+              <div class="ambition-footer mono-code">
+                <i class="fa-solid fa-quote-left text-primary-blue"></i>
+                <span>"Yes we can."</span>
+              </div>
+            </div>
+
+            <!-- Quick Info Cards -->
+            <div class="info-badges-grid">
+              <div class="info-badge-card">
+                <span class="info-label mono-code">EDUCATION</span>
+                <span class="info-val">SMAN 1 Sangatta Utara</span>
+              </div>
+              <div class="info-badge-card">
+                <span class="info-label mono-code">CLASS / GRADE</span>
+                <span class="info-val">Grade 10 (High School)</span>
+              </div>
+              <div class="info-badge-card">
+                <span class="info-label mono-code">LOCATION</span>
+                <span class="info-val">Sangatta Utara, Indonesia</span>
+              </div>
+              <div class="info-badge-card">
+                <span class="info-label mono-code">MAIN INTERESTS</span>
+                <span class="info-val">Software Eng, CS, Arduino</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECTION 02: SKILLS
+         ======================================================== -->
+    <section id="skills" class="section skills-section">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <div class="section-tag mono-code">
+            <span class="tag-bracket">[</span> 02 // CAPABILITIES <span class="tag-bracket">]</span>
+          </div>
+          <h2 class="section-title">Technical Skills</h2>
+          <p class="section-subtitle">Technologies and Tools in My Active Learning Journey</p>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="skills-disclaimer reveal-on-scroll">
+          <i class="fa-solid fa-circle-info text-primary-blue" aria-hidden="true"></i>
+          <span>As a high school student, I represent my abilities honestly without fabricated proficiency metrics. Here are the core languages and tools I am actively studying, practicing, and exploring.</span>
+        </div>
+
+        <div class="skills-categories-grid">
+          
+          <!-- Category 1: Programming Languages -->
+          <div class="skills-category-card reveal-on-scroll">
+            <div class="category-header">
+              <div class="cat-icon-box">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <div>
+                <h3 class="category-title">Programming Languages</h3>
+                <span class="mono-code text-secondary">Core Foundation &amp; Problem Solving</span>
+              </div>
+            </div>
+
+            <div class="skills-list">
+              
+              <!-- Skill: Python -->
+              <div class="skill-item">
+                <div class="skill-item-top">
+                  <div class="skill-name-wrap">
+                    <i class="fa-brands fa-python skill-logo text-accent" aria-hidden="true"></i>
+                    <span class="skill-name">Python</span>
+                  </div>
+                  <span class="skill-level-badge level-learning mono-code">Learning</span>
+                </div>
+                <p class="skill-desc">
+                  Studying algorithmic problem solving, scripting, data handling, and automation. Used for foundational logic development and rapid prototyping.
+                </p>
+                <div class="skill-tags mono-code">
+                  <span>#algorithms</span>
+                  <span>#scripting</span>
+                  <span>#automation</span>
+                </div>
+              </div>
+
+              <!-- Skill: C -->
+              <div class="skill-item">
+                <div class="skill-item-top">
+                  <div class="skill-name-wrap">
+                    <span class="skill-icon-text mono-code">C</span>
+                    <span class="skill-name">C</span>
+                  </div>
+                  <span class="skill-level-badge level-learning mono-code">Learning</span>
+                </div>
+                <p class="skill-desc">
+                  Exploring low-level memory concepts, pointer arithmetic, manual memory allocation, and structured programming paradigms.
+                </p>
+                <div class="skill-tags mono-code">
+                  <span>#memory</span>
+                  <span>#pointers</span>
+                  <span>#fundamentals</span>
+                </div>
+              </div>
+
+              <!-- Skill: C++ -->
+              <div class="skill-item">
+                <div class="skill-item-top">
+                  <div class="skill-name-wrap">
+                    <span class="skill-icon-text mono-code">C++</span>
+                    <span class="skill-name">C++</span>
+                  </div>
+                  <span class="skill-level-badge level-exploring mono-code">Exploring</span>
+                </div>
+                <p class="skill-desc">
+                  Learning object-oriented principles (OOP), standard template library (STL), data structures, and algorithmic execution efficiency.
+                </p>
+                <div class="skill-tags mono-code">
+                  <span>#oop</span>
+                  <span>#data-structures</span>
+                  <span>#logic</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Category 2: Developer Tools & Hardware -->
+          <div class="skills-category-card reveal-on-scroll">
+            <div class="category-header">
+              <div class="cat-icon-box">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+              </div>
+              <div>
+                <h3 class="category-title">Tools &amp; Hardware</h3>
+                <span class="mono-code text-secondary">Development Environments &amp; Electronics</span>
+              </div>
+            </div>
+
+            <div class="skills-list">
+              
+              <!-- Tool: VS Code -->
+              <div class="skill-item">
+                <div class="skill-item-top">
+                  <div class="skill-name-wrap">
+                    <i class="fa-solid fa-laptop-code skill-logo text-primary-blue" aria-hidden="true"></i>
+                    <span class="skill-name">Visual Studio Code</span>
+                  </div>
+                  <span class="skill-level-badge level-active mono-code">Primary IDE</span>
+                </div>
+                <p class="skill-desc">
+                  My primary daily code editor for writing Python, C, C++, and web markup. Configured with linter extensions, debugging tools, and integrated terminal.
+                </p>
+                <div class="skill-tags mono-code">
+                  <span>#editor</span>
+                  <span>#debugging</span>
+                  <span>#workflow</span>
+                </div>
+              </div>
+
+              <!-- Tool: GitHub -->
+              <div class="skill-item">
+                <div class="skill-item-top">
+                  <div class="skill-name-wrap">
+                    <i class="fa-brands fa-github skill-logo" aria-hidden="true"></i>
+                    <span class="skill-name">GitHub &amp; Git</span>
+                  </div>
+                  <span class="skill-level-badge level-learning mono-code">Learning</span>
+                </div>
+                <p class="skill-desc">
+                  Utilizing Git for version control, managing project repositories, tracking code revisions, and studying open-source workflows on GitHub.
+                </p>
+                <div class="skill-tags mono-code">
+                  <span>#version-control</span>
+                  <span>#repos</span>
+                  <span>#collaboration</span>
+                </div>
+              </div>
+
+              <!-- Tool: Arduino IDE -->
+              <div class="skill-item">
+                <div class="skill-item-top">
+                  <div class="skill-name-wrap">
+                    <i class="fa-solid fa-microchip skill-logo text-accent" aria-hidden="true"></i>
+                    <span class="skill-name">Arduino IDE</span>
+                  </div>
+                  <span class="skill-level-badge level-exploring mono-code">Exploring</span>
+                </div>
+                <p class="skill-desc">
+                  Programming microcontrollers, reading analog/digital sensor inputs, controlling actuators, and prototyping physical computing circuits.
+                </p>
+                <div class="skill-tags mono-code">
+                  <span>#microcontrollers</span>
+                  <span>#sensors</span>
+                  <span>#iot-hardware</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECTION 03: PROJECTS
+         ======================================================== -->
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <div class="section-tag mono-code">
+            <span class="tag-bracket">[</span> 03 // WORKS <span class="tag-bracket">]</span>
+          </div>
+          <h2 class="section-title">Projects</h2>
+          <p class="section-subtitle">Practical Code Experiments, Software Tools &amp; Hardware Prototypes</p>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- Project Filters -->
+        <div class="filter-controls reveal-on-scroll" role="group" aria-label="Filter projects">
+          <button class="filter-btn active mono-code" data-filter="all">
+            <span class="filter-indicator"></span>All (5)
+          </button>
+          <button class="filter-btn mono-code" data-filter="programming">
+            <span class="filter-indicator"></span>Programming (4)
+          </button>
+          <button class="filter-btn mono-code" data-filter="arduino">
+            <span class="filter-indicator"></span>Arduino &amp; Electronics (1)
+          </button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="projects-grid" id="projects-grid">
+          
+          <!-- Project 01: Programming -->
+          <article class="project-card pixel-frame" data-category="programming">
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+
+            <div class="project-img-box">
+              <img src="assets/images/projects/project-01.jpg" 
+                   alt="Project 01 - Algorithmic Problem Solver & Python Utility" 
+                   class="project-img"
+                   loading="lazy"
+                   onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'><rect width=\'600\' height=\'380\' fill=\'%23111D2D\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%234D9FFF\' font-family=\'sans-serif\' font-size=\'16\'>assets/images/projects/project-01.jpg</text></svg>';">
+              <div class="project-overlay">
+                <span class="mono-code overlay-badge">PROG_01</span>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta-top">
+                <span class="project-cat-badge mono-code">Programming</span>
+                <span class="project-id mono-code">PRJ-01</span>
+              </div>
+              <h3 class="project-title">Algorithmic Problem Solver &amp; Python Utility</h3>
+              <p class="project-desc">
+                A modular Python application focused on data structure operations, search/sort algorithmic benchmarks, and command-line automation. Built to practice computational problem-solving logic.
+              </p>
+              
+              <div class="project-tech-stack mono-code">
+                <span>Python</span>
+                <span>Algorithms</span>
+                <span>CLI</span>
+              </div>
+
+              <div class="project-footer">
+                <a href="https://github.com/Fathir0821" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View code on GitHub for Project 01">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                  <span>View Code on GitHub</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 02: Programming -->
+          <article class="project-card pixel-frame" data-category="programming">
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+
+            <div class="project-img-box">
+              <img src="assets/images/projects/project-02.jpg" 
+                   alt="Project 02 - Data Structure & Memory Management in C" 
+                   class="project-img"
+                   loading="lazy"
+                   onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'><rect width=\'600\' height=\'380\' fill=\'%23111D2D\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%234D9FFF\' font-family=\'sans-serif\' font-size=\'16\'>assets/images/projects/project-02.jpg</text></svg>';">
+              <div class="project-overlay">
+                <span class="mono-code overlay-badge">PROG_02</span>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta-top">
+                <span class="project-cat-badge mono-code">Programming</span>
+                <span class="project-id mono-code">PRJ-02</span>
+              </div>
+              <h3 class="project-title">Data Structure &amp; Memory Management in C</h3>
+              <p class="project-desc">
+                An implementation of linked lists, dynamic arrays, pointer manipulations, and manual memory allocation in pure C, exploring system-level architecture and execution efficiency.
+              </p>
+              
+              <div class="project-tech-stack mono-code">
+                <span>C</span>
+                <span>Pointers</span>
+                <span>Memory</span>
+              </div>
+
+              <div class="project-footer">
+                <a href="https://github.com/Fathir0821" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View code on GitHub for Project 02">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                  <span>View Code on GitHub</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 03: Programming -->
+          <article class="project-card pixel-frame" data-category="programming">
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+
+            <div class="project-img-box">
+              <img src="assets/images/projects/project-03.jpg" 
+                   alt="Project 03 - Object-Oriented Logic Engine in C++" 
+                   class="project-img"
+                   loading="lazy"
+                   onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'><rect width=\'600\' height=\'380\' fill=\'%23111D2D\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%234D9FFF\' font-family=\'sans-serif\' font-size=\'16\'>assets/images/projects/project-03.jpg</text></svg>';">
+              <div class="project-overlay">
+                <span class="mono-code overlay-badge">PROG_03</span>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta-top">
+                <span class="project-cat-badge mono-code">Programming</span>
+                <span class="project-id mono-code">PRJ-03</span>
+              </div>
+              <h3 class="project-title">Object-Oriented Logic Engine in C++</h3>
+              <p class="project-desc">
+                A structured console application leveraging C++ classes, inheritance, encapsulation, and standard library components to model state-driven logic engines and simulations.
+              </p>
+              
+              <div class="project-tech-stack mono-code">
+                <span>C++</span>
+                <span>OOP</span>
+                <span>STL</span>
+              </div>
+
+              <div class="project-footer">
+                <a href="https://github.com/Fathir0821" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View code on GitHub for Project 03">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                  <span>View Code on GitHub</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 04: Programming -->
+          <article class="project-card pixel-frame" data-category="programming">
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+
+            <div class="project-img-box">
+              <img src="assets/images/projects/project-04.jpg" 
+                   alt="Project 04 - Interactive Software & Automation Script" 
+                   class="project-img"
+                   loading="lazy"
+                   onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'><rect width=\'600\' height=\'380\' fill=\'%23111D2D\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%234D9FFF\' font-family=\'sans-serif\' font-size=\'16\'>assets/images/projects/project-04.jpg</text></svg>';">
+              <div class="project-overlay">
+                <span class="mono-code overlay-badge">PROG_04</span>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta-top">
+                <span class="project-cat-badge mono-code">Programming</span>
+                <span class="project-id mono-code">PRJ-04</span>
+              </div>
+              <h3 class="project-title">Interactive Software &amp; Automation Script</h3>
+              <p class="project-desc">
+                An automation script and utility toolkit designed to streamline workflow tasks, parsing structured data, and managing system resources through lightweight Python scripts.
+              </p>
+              
+              <div class="project-tech-stack mono-code">
+                <span>Python</span>
+                <span>Automation</span>
+                <span>File I/O</span>
+              </div>
+
+              <div class="project-footer">
+                <a href="https://github.com/Fathir0821" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View code on GitHub for Project 04">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                  <span>View Code on GitHub</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 05: Arduino -->
+          <article class="project-card pixel-frame" data-category="arduino">
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+
+            <div class="project-img-box">
+              <img src="assets/images/projects/project-05.jpg" 
+                   alt="Project 05 - Smart Sensor & Microcontroller Automation" 
+                   class="project-img"
+                   loading="lazy"
+                   onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'380\' viewBox=\'0 0 600 380\'><rect width=\'600\' height=\'380\' fill=\'%23111D2D\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2348E0B0\' font-family=\'sans-serif\' font-size=\'16\'>assets/images/projects/project-05.jpg</text></svg>';">
+              <div class="project-overlay">
+                <span class="mono-code overlay-badge">ARDUINO_01</span>
+              </div>
+            </div>
+
+            <div class="project-body">
+              <div class="project-meta-top">
+                <span class="project-cat-badge cat-arduino mono-code">Arduino</span>
+                <span class="project-id mono-code">PRJ-05</span>
+              </div>
+              <h3 class="project-title">Smart Sensor &amp; Microcontroller Automation</h3>
+              <p class="project-desc">
+                An embedded hardware and robotics project utilizing an Arduino microcontroller, digital/analog sensors, and output actuators to create an automated responsive physical system.
+              </p>
+              
+              <div class="project-tech-stack mono-code">
+                <span>Arduino IDE</span>
+                <span>C/C++</span>
+                <span>Sensors</span>
+                <span>Electronics</span>
+              </div>
+
+              <div class="project-footer">
+                <a href="https://github.com/Fathir0821" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View code on GitHub for Project 05">
+                  <i class="fa-brands fa-github" aria-hidden="true"></i>
+                  <span>View Code on GitHub</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="projects-note reveal-on-scroll">
+          <p class="mono-code text-secondary">
+            <i class="fa-solid fa-code-branch text-accent"></i> Want to see more ongoing experiments? Visit my official GitHub at 
+            <a href="https://github.com/Fathir0821" target="_blank" rel="noopener noreferrer" class="text-accent underline-link">github.com/Fathir0821</a>.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECTION 04: ACHIEVEMENTS
+         ======================================================== -->
+    <section id="achievements" class="section achievements-section">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <div class="section-tag mono-code">
+            <span class="tag-bracket">[</span> 04 // HONORS <span class="tag-bracket">]</span>
+          </div>
+          <h2 class="section-title">Achievements</h2>
+          <p class="section-subtitle">Competitions, Academic Challenges, and Technical Training Certificates</p>
+          <div class="section-line"></div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-controls reveal-on-scroll" role="group" aria-label="Filter achievements">
+          <button class="ach-filter-btn active mono-code" data-filter="all">
+            <span class="filter-indicator"></span>All (7)
+          </button>
+          <button class="ach-filter-btn mono-code" data-filter="competitions">
+            <span class="filter-indicator"></span>Competitions (5)
+          </button>
+          <button class="ach-filter-btn mono-code" data-filter="training">
+            <span class="filter-indicator"></span>Training &amp; Certificates (2)
+          </button>
+        </div>
+
+        <!-- Achievements Grid -->
+        <div class="achievements-grid" id="achievements-grid">
+          
+          <!-- Achievement 01: Competition -->
+          <article class="achievement-card pixel-frame" data-category="competitions">
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+
+            <div class="achievement-img-box" tabindex="0" role="button" aria-label="Open Competition 01 image in lightbox" data-lightbox-src="assets/images/achievements/competitions/competition-01.jpg" data-title="Academic &amp; Student Competition 01" data-caption="Regional student competition participation recognizing analytical problem solving and academic excellence.">
+              <img src="assets/images/achievements/competitions/competition-01.jpg" 
+                   alt="Academic & Student Competition 01" 
+                   class="achievement-img"
+                   loading="lazy"
+                   onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\' viewBox=\'0 0 600 400\'><rect width=\'600\' height=\'400\' fill=\'%23111D2D\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%234D9FFF\' font-family=\'sans-serif\' font-size=\'14\'>assets/images/achievements/competitions/competition-01.jpg</text></svg>';">
+              <div class="achievement-hover-overlay">
+                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                <span class="mono-code">VIEW CERTIFICATE</span>
+              </div>
+            </div>
+
+            <div class="achievement-content">
+              <div class="achievement-meta">
+                <span class="badge-category mono-code">Competition</span>
+                <span class="badge-year mono-code">2024 - 2026</span>
+              </div>
+              <h3 class="achievement-title">Academic &amp; Student Competition 01</h3>
+              <p class="achievement-org text-secondary mono-code">
+                <i class="fa-solid fa-building-columns"></i> Student Competition Event
+              </p>
+              <div class="achievement-level mono-code">
+                <span class="level-indicator">●</span> Regional / Student Level
+              </div>
+              <p class="achievement-desc">
+                Active participant and competitor in regional student academic competitions, demonstrating dedication, problem analysis, and intellectual discipline.
+              </p>
+            </div>
+          </article>
+
+          <!-- Achievement 02: Competition -->
+          <article class="achievement-card pixel-frame" data-category="competitions">
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+
+            <div class="achievement-img-box" tabindex="0" role="button" aria-label="Open Competition 02 image in lightbox" data-lightbox-src="assets/images/achievements/competitions/competition-02.jpg" data-title="Academic &amp; Student Competition 02" data-caption="Regional student innovation event emphasizing STEM skills and collaborative excellence.">
+              <img src="assets/images/achievements/competitions/competition-02.jpg" 
+                   alt="Academic & Student Competition 02" 
+                   class="achievement-img"
+                   loading="lazy"
+                   onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\' viewBox=\'0 0 600 400\'><rect width=\'600\' height=\'400\' fill=\'%23111D2D\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%234D9FFF\' font-family=\'sans-serif\' font-size=\'14\'>assets/images/achievements/competitions/competition-02.jpg</text></svg>';">
+              <div class="achievement-hover-overlay">
+                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                <span class="mono-code">VIEW CERTIFICATE</span>
+              </div>
+            </div>
+
+            <div class="achievement-content">
+              <div class="achievement-meta">
+                <span class="badge-category mono-code">Competition</span>
+                <span class="badge-year mono-code">2024 - 2026</span>
+              </div>
+              <h3 class="achievement-title">Academic &amp; Student Competition 02</h3>
+              <p class="achievement-org text-secondary mono-code">
+                <i class="fa-solid fa-building-columns"></i> Innovation &amp; Academic Challenge
+              </p>
+              <div class="achievement-level mono-code">
+                <span class="level-indicator">●</span> Regional Level
+              </div>
+              <p class="achievement-desc">
+                Representing school participation in academic challenges, fostering resilience, structured problem solving, and technical aptitude.
+              </p>
+            </div>
+          </article>
+
+          <!-- Achievement 03: Competition -->
+          <article class="achievement-card pixel-frame" data-category="competitions">
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+
+            <div class="achievement-img-box" tabindex="0" role="button" aria-label="Open Competition 03 image in lightbox" data-lightbox-src="assets/images/achievements/competitions/competition-03.jpg" data-title="Science &amp; Technology Contest 03" data-caption="Student science and technology contest recognizing teamwork, methodology, and commitment.">
+              <img src="assets/images/achievements/competitions/competition-03.jpg" 
+                   alt="Science & Technology Contest 03" 
+                   class="achievement-img"
+                   loading="lazy"
+                   onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\' viewBox=\'0 0 600 400\'><rect width=\'600\' height=\'400\' fill=\'%23111D2D\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%234D9FFF\' font-family=\'sans-serif\' font-size=\'14\'>assets/images/achievements/competitions/competition-03.jpg</text></svg>';">
+              <div class="achievement-hover-overlay">
+                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                <span class="mono-code">VIEW CERTIFICATE</span>
+              </div>
+            </div>
+
+            <div class="achievement-content">
+              <div class="achievement-meta">
+                <span class="badge-category mono-code">Competition</span>
+                <span class="badge-year mono-code">2024 - 2026</span>
+              </div>
+              <h3 class="achievement-title">Science &amp; Technology Contest 03</h3>
+              <p class="achievement-org text-secondary mono-code">
+                <i class="fa-solid fa-building-columns"></i> Youth STEM Organization
+              </p>
+              <div class="achievement-level mono-code">
+                <span class="level-indicator">●</span> Student Competition
+              </div>
+              <p class="achievement-desc">
+                Competitive recognition highlighting student participation in scientific inquiry, technical methodology, and structured academic thinking.
+              </p>
+            </div>
+          </article>
+
+          <!-- Achievement 04: Competition -->
+          <article class="achievement-card pixel-frame" data-category="competitions">
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+
+            <div class="achievement-img-box" tabindex="0" role="button" aria-label="Open Competition 04 image in lightbox" data-lightbox-src="assets/images/achievements/competitions/competition-04.jpg" data-title="Student Academic Challenge 04" data-caption="Regional student championship celebrating persistence, talent, and high school academic excellence.">
+              <img src="assets/images/achievements/competitions/competition-04.jpg" 
+                   alt="Student Academic Challenge 04" 
+                   class="achievement-img"
+                   loading="lazy"
+                   onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\' viewBox=\'0 0 600 400\'><rect width=\'600\' height=\'400\' fill=\'%23111D2D\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%234D9FFF\' font-family=\'sans-serif\' font-size=\'14\'>assets/images/achievements/competitions/competition-04.jpg</text></svg>';">
+              <div class="achievement-hover-overlay">
+                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                <span class="mono-code">VIEW CERTIFICATE</span>
+              </div>
+            </div>
+
+            <div class="achievement-content">
+              <div class="achievement-meta">
+                <span class="badge-category mono-code">Competition</span>
+                <span class="badge-year mono-code">2024 - 2026</span>
+              </div>
+              <h3 class="achievement-title">Student Academic Challenge 04</h3>
+              <p class="achievement-org text-secondary mono-code">
+                <i class="fa-solid fa-building-columns"></i> Interschool Academic Committee
+              </p>
+              <div class="achievement-level mono-code">
+                <span class="level-indicator">●</span> Regional Contest
+              </div>
+              <p class="achievement-desc">
+                Engagement in interschool academic competition that encouraged collaborative problem solving, critical analysis, and extracurricular dedication.
+              </p>
+            </div>
+          </article>
+
+          <!-- Achievement 05: Competition -->
+          <article class="achievement-card pixel-frame" data-category="competitions">
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+
+            <div class="achievement-img-box" tabindex="0" role="button" aria-label="Open Competition 05 image in lightbox" data-lightbox-src="assets/images/achievements/competitions/competition-05.jpg" data-title="Student Excellence Competition 05" data-caption="Award certificate acknowledging competitive performance, preparation, and student achievement.">
+              <img src="assets/images/achievements/competitions/competition-05.jpg" 
+                   alt="Student Excellence Competition 05" 
+                   class="achievement-img"
+                   loading="lazy"
+                   onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\' viewBox=\'0 0 600 400\'><rect width=\'600\' height=\'400\' fill=\'%23111D2D\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%234D9FFF\' font-family=\'sans-serif\' font-size=\'14\'>assets/images/achievements/competitions/competition-05.jpg</text></svg>';">
+              <div class="achievement-hover-overlay">
+                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                <span class="mono-code">VIEW CERTIFICATE</span>
+              </div>
+            </div>
+
+            <div class="achievement-content">
+              <div class="achievement-meta">
+                <span class="badge-category mono-code">Competition</span>
+                <span class="badge-year mono-code">2024 - 2026</span>
+              </div>
+              <h3 class="achievement-title">Student Excellence Competition 05</h3>
+              <p class="achievement-org text-secondary mono-code">
+                <i class="fa-solid fa-building-columns"></i> Youth Academic League
+              </p>
+              <div class="achievement-level mono-code">
+                <span class="level-indicator">●</span> Competition Honors
+              </div>
+              <p class="achievement-desc">
+                Recognition received for competitive readiness, teamwork, and strong performance in secondary student competitive challenges.
+              </p>
+            </div>
+          </article>
+
+          <!-- Achievement 06: Training -->
+          <article class="achievement-card pixel-frame" data-category="training">
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+
+            <div class="achievement-img-box" tabindex="0" role="button" aria-label="Open Training 01 image in lightbox" data-lightbox-src="assets/images/achievements/training/training-01.jpg" data-title="Technical Training &amp; Skill Development 01" data-caption="Verified certificate of completion for structured technical skill development training.">
+              <img src="assets/images/achievements/training/training-01.jpg" 
+                   alt="Technical Training & Skill Development 01" 
+                   class="achievement-img"
+                   loading="lazy"
+                   onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\' viewBox=\'0 0 600 400\'><rect width=\'600\' height=\'400\' fill=\'%23111D2D\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2348E0B0\' font-family=\'sans-serif\' font-size=\'14\'>assets/images/achievements/training/training-01.jpg</text></svg>';">
+              <div class="achievement-hover-overlay">
+                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                <span class="mono-code">VIEW CERTIFICATE</span>
+              </div>
+            </div>
+
+            <div class="achievement-content">
+              <div class="achievement-meta">
+                <span class="badge-category cat-training mono-code">Training</span>
+                <span class="badge-year mono-code">2024 - 2026</span>
+              </div>
+              <h3 class="achievement-title">Technical Training &amp; Skill Development 01</h3>
+              <p class="achievement-org text-secondary mono-code">
+                <i class="fa-solid fa-award"></i> Professional Skills Program
+              </p>
+              <div class="achievement-level mono-code">
+                <span class="level-indicator">●</span> Certified Training
+              </div>
+              <p class="achievement-desc">
+                Successful completion of specialized training course focused on foundational technical competencies, digital workflow, and applied skills.
+              </p>
+            </div>
+          </article>
+
+          <!-- Achievement 07: Training -->
+          <article class="achievement-card pixel-frame" data-category="training">
+            <div class="card-corner corner-tl"></div>
+            <div class="card-corner corner-tr"></div>
+            <div class="card-corner corner-bl"></div>
+            <div class="card-corner corner-br"></div>
+
+            <div class="achievement-img-box" tabindex="0" role="button" aria-label="Open Training 02 image in lightbox" data-lightbox-src="assets/images/achievements/training/training-02.jpg" data-title="Specialized Workshop &amp; Technical Certificate 02" data-caption="Practical workshop completion certificate highlighting hands-on technical training and continuous learning.">
+              <img src="assets/images/achievements/training/training-02.jpg" 
+                   alt="Specialized Workshop & Technical Certificate 02" 
+                   class="achievement-img"
+                   loading="lazy"
+                   onerror="this.onerror=null; this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'600\' height=\'400\' viewBox=\'0 0 600 400\'><rect width=\'600\' height=\'400\' fill=\'%23111D2D\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' fill=\'%2348E0B0\' font-family=\'sans-serif\' font-size=\'14\'>assets/images/achievements/training/training-02.jpg</text></svg>';">
+              <div class="achievement-hover-overlay">
+                <i class="fa-solid fa-magnifying-glass-plus" aria-hidden="true"></i>
+                <span class="mono-code">VIEW CERTIFICATE</span>
+              </div>
+            </div>
+
+            <div class="achievement-content">
+              <div class="achievement-meta">
+                <span class="badge-category cat-training mono-code">Training</span>
+                <span class="badge-year mono-code">2024 - 2026</span>
+              </div>
+              <h3 class="achievement-title">Specialized Workshop &amp; Technical Certificate 02</h3>
+              <p class="achievement-org text-secondary mono-code">
+                <i class="fa-solid fa-award"></i> Technology Workshop Series
+              </p>
+              <div class="achievement-level mono-code">
+                <span class="level-indicator">●</span> Certificate of Completion
+              </div>
+              <p class="achievement-desc">
+                Hands-on technical workshop certificate confirming practical experience in structured development, computational concepts, and digital tools.
+              </p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECTION 05: EDUCATION & JOURNEY
+         ======================================================== -->
+    <section id="journey" class="section journey-section">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <div class="section-tag mono-code">
+            <span class="tag-bracket">[</span> 05 // TIMELINE <span class="tag-bracket">]</span>
+          </div>
+          <h2 class="section-title">Education &amp; Journey</h2>
+          <p class="section-subtitle">Academic Foundations, Current Milestones, and Long-Term Vision</p>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="timeline-container">
+          <div class="timeline-line" aria-hidden="true"></div>
+
+          <!-- Timeline Item 01: SMPN 3 Sangatta Utara -->
+          <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-node">
+              <span class="node-inner"></span>
+            </div>
+            <div class="timeline-content pixel-frame">
+              <div class="card-corner corner-tl"></div>
+              <div class="card-corner corner-tr"></div>
+              <div class="card-corner corner-bl"></div>
+              <div class="card-corner corner-br"></div>
+              
+              <div class="timeline-header">
+                <span class="timeline-period mono-code">PREVIOUS EDUCATION</span>
+                <span class="timeline-badge badge-completed mono-code">Completed</span>
+              </div>
+              <h3 class="timeline-title">SMPN 3 Sangatta Utara</h3>
+              <p class="timeline-subtitle text-secondary">Junior High School Foundation</p>
+              <p class="timeline-text">
+                Successfully graduated with strong academic performance. It was during these junior high school years that my initial fascination with computers, electronics, and digital creation was sparked.
+              </p>
+              <div class="timeline-tags mono-code">
+                <span>#foundations</span>
+                <span>#academics</span>
+                <span>#sangatta-utara</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 02: SMAN 1 Sangatta Utara -->
+          <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-node active-node">
+              <span class="node-inner"></span>
+            </div>
+            <div class="timeline-content pixel-frame">
+              <div class="card-corner corner-tl"></div>
+              <div class="card-corner corner-tr"></div>
+              <div class="card-corner corner-bl"></div>
+              <div class="card-corner corner-br"></div>
+
+              <div class="timeline-header">
+                <span class="timeline-period mono-code">STARTED IN 2026 • GRADE 10</span>
+                <span class="timeline-badge badge-active mono-code">Currently Studying</span>
+              </div>
+              <h3 class="timeline-title">SMAN 1 Sangatta Utara</h3>
+              <p class="timeline-subtitle text-secondary">Senior High School Education</p>
+              <p class="timeline-text">
+                Currently pursuing Grade 10 senior high school studies. Actively balancing academic curriculum with self-initiated programming projects, computer science studies, and student competition opportunities.
+              </p>
+              <div class="timeline-tags mono-code">
+                <span>#grade-10</span>
+                <span>#active-student</span>
+                <span>#high-school</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 03: Programming Journey -->
+          <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-node">
+              <span class="node-inner"></span>
+            </div>
+            <div class="timeline-content pixel-frame">
+              <div class="card-corner corner-tl"></div>
+              <div class="card-corner corner-tr"></div>
+              <div class="card-corner corner-bl"></div>
+              <div class="card-corner corner-br"></div>
+
+              <div class="timeline-header">
+                <span class="timeline-period mono-code">CONTINUOUS SELF-STUDY</span>
+                <span class="timeline-badge badge-active mono-code">In Progress</span>
+              </div>
+              <h3 class="timeline-title">Programming &amp; Technology Journey</h3>
+              <p class="timeline-subtitle text-secondary">Hands-On Software &amp; Embedded Hardware</p>
+              <p class="timeline-text">
+                Dedicating focused hours to studying Python for problem solving, C for computer architecture understanding, and C++ for object-oriented logic. Integrating software with Arduino microcontrollers for real-world automation experiments.
+              </p>
+              <div class="timeline-tags mono-code">
+                <span>#python</span>
+                <span>#c-lang</span>
+                <span>#cpp</span>
+                <span>#arduino</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Timeline Item 04: Future Goals -->
+          <div class="timeline-item reveal-on-scroll">
+            <div class="timeline-node goal-node">
+              <span class="node-inner"></span>
+            </div>
+            <div class="timeline-content pixel-frame">
+              <div class="card-corner corner-tl"></div>
+              <div class="card-corner corner-tr"></div>
+              <div class="card-corner corner-bl"></div>
+              <div class="card-corner corner-br"></div>
+
+              <div class="timeline-header">
+                <span class="timeline-period mono-code">LONG-TERM AMBITION</span>
+                <span class="timeline-badge badge-target mono-code">Target Objective</span>
+              </div>
+              <h3 class="timeline-title">Future Goals &amp; Career Aspirations</h3>
+              <p class="timeline-subtitle text-secondary">Global Tech Industry &amp; Software Engineering</p>
+              <p class="timeline-text">
+                Prepare for higher education in Computer Science, continuously strengthen algorithmic problem solving, contribute to impactful open-source software, and ultimately build a professional career at a world-class technology leader such as <strong>Google</strong>.
+              </p>
+              <div class="timeline-tags mono-code">
+                <span>#computer-science</span>
+                <span>#software-engineer</span>
+                <span>#google-vision</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Closing Statement Banner -->
+        <div class="journey-closing-card reveal-on-scroll">
+          <div class="closing-glow"></div>
+          <div class="closing-icon">
+            <i class="fa-solid fa-code-commit text-accent"></i>
+          </div>
+          <div class="closing-body">
+            <h4 class="closing-heading">The Philosophy: Continuous Improvement</h4>
+            <p class="closing-quote">
+              "Every single line of code written today lays the foundation for tomorrow's engineering solutions. No matter how steep the learning curve, with curiosity, persistence, and discipline: <strong>Yes we can.</strong>"
+            </p>
+            <span class="closing-author mono-code">— Muhammad Fatir Dohmie (Atirr)</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ========================================================
+         SECTION 06: CONTACT
+         ======================================================== -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        
+        <div class="section-header reveal-on-scroll">
+          <div class="section-tag mono-code">
+            <span class="tag-bracket">[</span> 06 // CONNECT <span class="tag-bracket">]</span>
+          </div>
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="section-subtitle">Let's Connect, Discuss Technology, or Collaborate</p>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="contact-wrapper reveal-on-scroll">
+          
+          <div class="contact-intro">
+            <h3 class="contact-prompt-title">Open to Conversations &amp; Learning Opportunities</h3>
+            <p class="contact-prompt-desc">
+              Whether you want to discuss software engineering, share mentorship and advice, explore ideas around Arduino electronics, or simply say hello — feel free to reach out across any of my official social platforms or send an email directly to my inbox.
+            </p>
+          </div>
+
+          <!-- Official Contact Channels Grid -->
+          <div class="contact-channels-grid">
+            
+            <!-- Email (Primary Direct Contact) -->
+            <div class="contact-card pixel-frame featured-channel">
+              <div class="card-corner corner-tl"></div>
+              <div class="card-corner corner-tr"></div>
+              <div class="card-corner corner-bl"></div>
+              <div class="card-corner corner-br"></div>
+
+              <div class="contact-card-icon text-accent">
+                <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+              </div>
+              <div class="contact-card-info">
+                <span class="contact-type mono-code">PRIMARY EMAIL</span>
+                <span class="contact-val">ffatirdochmie@gmail.com</span>
+                <p class="contact-sub">Available for inquiries, academic correspondence &amp; tech discussions.</p>
+              </div>
+              <a href="mailto:ffatirdochmie@gmail.com" class="btn btn-primary contact-action-btn" aria-label="Send email to ffatirdochmie@gmail.com">
+                <span>Send Email</span>
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="contact-card pixel-frame">
+              <div class="card-corner corner-tl"></div>
+              <div class="card-corner corner-tr"></div>
+              <div class="card-corner corner-bl"></div>
+              <div class="card-corner corner-br"></div>
+
+              <div class="contact-card-icon text-primary-blue">
+                <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+              </div>
+              <div class="contact-card-info">
+                <span class="contact-type mono-code">LINKEDIN</span>
+                <span class="contact-val">Muhammad Fatir Dohmie</span>
+                <p class="contact-sub">Connect for professional networking and academic growth.</p>
+              </div>
+              <a href="https://www.linkedin.com/in/muhammad-fatir-dohmie-a395a0392?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-secondary contact-action-btn" 
+                 aria-label="Visit Muhammad Fatir Dohmie on LinkedIn (opens in a new tab)">
+                <span>Connect</span>
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </div>
+
+            <!-- GitHub -->
+            <div class="contact-card pixel-frame">
+              <div class="card-corner corner-tl"></div>
+              <div class="card-corner corner-tr"></div>
+              <div class="card-corner corner-bl"></div>
+              <div class="card-corner corner-br"></div>
+
+              <div class="contact-card-icon">
+                <i class="fa-brands fa-github" aria-hidden="true"></i>
+              </div>
+              <div class="contact-card-info">
+                <span class="contact-type mono-code">GITHUB</span>
+                <span class="contact-val">@Fathir0821</span>
+                <p class="contact-sub">Explore source code repositories and experimental scripts.</p>
+              </div>
+              <a href="https://github.com/Fathir0821" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-secondary contact-action-btn" 
+                 aria-label="Visit Fathir0821 on GitHub (opens in a new tab)">
+                <span>Follow</span>
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </div>
+
+            <!-- Instagram -->
+            <div class="contact-card pixel-frame">
+              <div class="card-corner corner-tl"></div>
+              <div class="card-corner corner-tr"></div>
+              <div class="card-corner corner-bl"></div>
+              <div class="card-corner corner-br"></div>
+
+              <div class="contact-card-icon text-accent">
+                <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+              </div>
+              <div class="contact-card-info">
+                <span class="contact-type mono-code">INSTAGRAM</span>
+                <span class="contact-val">@axnoth1r</span>
+                <p class="contact-sub">Personal updates, student life, and everyday stories.</p>
+              </div>
+              <a href="https://www.instagram.com/axnoth1r?lqvp=MTk0aG5wcW14eHozNw==" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-secondary contact-action-btn" 
+                 aria-label="Visit axnoth1r on Instagram (opens in a new tab)">
+                <span>Follow</span>
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </div>
+
+            <!-- TikTok -->
+            <div class="contact-card pixel-frame">
+              <div class="card-corner corner-tl"></div>
+              <div class="card-corner corner-tr"></div>
+              <div class="card-corner corner-bl"></div>
+              <div class="card-corner corner-br"></div>
+
+              <div class="contact-card-icon text-primary-blue">
+                <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+              </div>
+              <div class="contact-card-info">
+                <span class="contact-type mono-code">TIKTOK</span>
+                <span class="contact-val">@axth1r</span>
+                <p class="contact-sub">Creative shorts, technology clips, and student content.</p>
+              </div>
+              <a href="https://www.tiktok.com/@axth1r" 
+                 target="_blank" 
+                 rel="noopener noreferrer" 
+                 class="btn btn-secondary contact-action-btn" 
+                 aria-label="Visit axth1r on TikTok (opens in a new tab)">
+                <span>Watch</span>
+                <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="footer" id="footer">
+    <div class="container footer-container">
+      
+      <div class="footer-top">
+        
+        <div class="footer-brand">
+          <a href="#hero" class="footer-logo" aria-label="Back to top">
+            <span class="logo-bracket">[</span><span class="logo-text">ATIRR</span><span class="logo-cursor">_</span><span class="logo-bracket">]</span>
+          </a>
+          <p class="footer-motto mono-code">
+            "Yes we can."
+          </p>
+          <p class="footer-bio text-secondary">
+            Muhammad Fatir Dohmie • Aspiring Software Engineer &amp; Technology Enthusiast. High School Student at SMAN 1 Sangatta Utara, Indonesia.
+          </p>
+        </div>
+
+        <div class="footer-nav-col">
+          <span class="footer-heading mono-code">// NAVIGATION</span>
+          <ul class="footer-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#journey">Journey</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-social-col">
+          <span class="footer-heading mono-code">// SOCIAL CONNECT</span>
+          <div class="footer-social-icons">
+            <a href="https://www.instagram.com/axnoth1r?lqvp=MTk0aG5wcW14eHozNw==" target="_blank" rel="noopener noreferrer" aria-label="Instagram @axnoth1r">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/@axth1r" target="_blank" rel="noopener noreferrer" aria-label="TikTok @axth1r">
+              <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/muhammad-fatir-dohmie-a395a0392?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/Fathir0821" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile @Fathir0821">
+              <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="mailto:ffatirdochmie@gmail.com" aria-label="Send an email to ffatirdochmie@gmail.com">
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p class="copyright mono-code">
+          &copy; <span id="current-year">2026</span> Muhammad Fatir Dohmie (Atirr). Built with semantic HTML5, modern CSS3 &amp; vanilla JavaScript.
+        </p>
+
+        <!-- Back to Top Button -->
+        <button id="back-to-top" class="back-to-top-btn" aria-label="Scroll back to top of page">
+          <span class="mono-code">TOP</span>
+          <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+        </button>
+      </div>
+
+    </div>
+  </footer>
+
+
+  <!-- ========================================================
+       IMAGE LIGHTBOX MODAL
+       ======================================================== -->
+  <div class="lightbox-modal" id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image Preview Lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" id="lightbox-backdrop"></div>
+    <div class="lightbox-dialog pixel-frame">
+      <div class="card-corner corner-tl"></div>
+      <div class="card-corner corner-tr"></div>
+      <div class="card-corner corner-bl"></div>
+      <div class="card-corner corner-br"></div>
+
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close lightbox modal">
+        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+      </button>
+
+      <div class="lightbox-media-container">
+        <img src="" alt="" class="lightbox-image" id="lightbox-image">
+      </div>
+
+      <div class="lightbox-details">
+        <h4 class="lightbox-title" id="lightbox-title">Achievement Preview</h4>
+        <p class="lightbox-caption mono-code" id="lightbox-caption"></p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Main JavaScript File -->
+  <script src="js/script.js" defer></script>
+</body>
+</html>
